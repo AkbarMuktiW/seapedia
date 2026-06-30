@@ -8,6 +8,9 @@ import com.seapedia.backend.repositories.UserRepository;
 import com.seapedia.backend.repositories.WalletRepository;
 import com.seapedia.backend.repositories.WalletTransactionRepository;
 import com.seapedia.backend.security.services.UserDetailsImpl;
+
+import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -73,7 +76,7 @@ public class WalletController {
     }
 
     @PostMapping("/topup")
-    public ResponseEntity<?> topUpWallet(@RequestBody TopUpRequest request) {
+    public ResponseEntity<?> topUpWallet(@Valid @RequestBody TopUpRequest request) {
         try {
             if (request.getAmount() == null || request.getAmount() <= 0) {
                 return ResponseEntity.badRequest().body("Error: Jumlah Top-Up harus lebih dari 0.");

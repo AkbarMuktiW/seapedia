@@ -13,6 +13,9 @@ import com.seapedia.backend.payload.request.LoginRequest;
 import com.seapedia.backend.payload.response.JwtResponse;
 import com.seapedia.backend.security.jwt.JwtUtils;
 import com.seapedia.backend.security.services.UserDetailsImpl;
+
+import jakarta.validation.Valid;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -50,7 +53,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@RequestBody SignupRequest signUpRequest) {
+    public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             return ResponseEntity.badRequest().body("Error: Username sudah digunakan!");
         }

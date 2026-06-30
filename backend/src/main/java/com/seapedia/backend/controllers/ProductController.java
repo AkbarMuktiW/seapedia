@@ -8,6 +8,9 @@ import com.seapedia.backend.repositories.ProductRepository;
 import com.seapedia.backend.repositories.StoreRepository;
 import com.seapedia.backend.repositories.UserRepository;
 import com.seapedia.backend.security.services.UserDetailsImpl;
+
+import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -41,7 +44,7 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createProduct(@RequestBody ProductRequest request) {
+    public ResponseEntity<?> createProduct(@Valid @RequestBody ProductRequest request) {
         try {
             Store myStore = getAuthenticatedSellerStore();
 
@@ -71,7 +74,7 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateProduct(@PathVariable Long id, @RequestBody ProductRequest request) {
+    public ResponseEntity<?> updateProduct(@PathVariable Long id, @Valid @RequestBody ProductRequest request) {
         try {
             Store myStore = getAuthenticatedSellerStore();
 

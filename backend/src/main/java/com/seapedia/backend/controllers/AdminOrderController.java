@@ -1,7 +1,5 @@
 package com.seapedia.backend.controllers;
 
-package com.seapedia.backend.controllers;
-
 import com.seapedia.backend.models.*;
 import com.seapedia.backend.payload.request.OverdueRequest;
 import com.seapedia.backend.repositories.*;

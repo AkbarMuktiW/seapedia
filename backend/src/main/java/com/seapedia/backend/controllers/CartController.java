@@ -9,6 +9,9 @@ import com.seapedia.backend.repositories.CartItemRepository;
 import com.seapedia.backend.repositories.ProductRepository;
 import com.seapedia.backend.repositories.UserRepository;
 import com.seapedia.backend.security.services.UserDetailsImpl;
+
+import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -77,7 +80,7 @@ public class CartController {
     }
 
     @PostMapping
-    public ResponseEntity<?> addToCart(@RequestBody CartRequest request) {
+    public ResponseEntity<?> addToCart(@Valid @RequestBody CartRequest request) {
         try {
             User buyer = getAuthenticatedBuyer();
             
