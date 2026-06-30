@@ -12,4 +12,6 @@ import java.util.List;
 public interface OrderTransactionRepository extends JpaRepository<OrderTransaction, Long> {
     List<OrderTransaction> findByBuyerOrderByOrderDateDesc(User buyer);
     List<OrderTransaction> findByStoreOrderByOrderDateDesc(Store store);
+    List<OrderTransaction> findByStatusOrderByOrderDateAsc(String status);
+    List<OrderTransaction> findByDriverOrderByOrderDateDesc(User driver);
 }

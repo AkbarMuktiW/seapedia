@@ -21,6 +21,10 @@ public class OrderTransaction {
     private Store store;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "driver_id", nullable = true)
+    private User driver;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id", nullable = false)
     private Address deliveryAddress;
 
