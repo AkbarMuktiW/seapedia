@@ -136,7 +136,7 @@ public class SellerOrderController {
             report.put("totalOrders", totalOrders);
             report.put("pendingOrders", pendingOrders);
             report.put("processedOrders", processedOrders);
-            report.put("grossRevenue", grossRevenue); // Total pendapatan bersih penjual
+            report.put("grossRevenue", grossRevenue);
 
             return ResponseEntity.ok(report);
         } catch (RuntimeException e) {

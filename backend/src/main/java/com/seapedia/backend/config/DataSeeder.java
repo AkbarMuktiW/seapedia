@@ -18,7 +18,6 @@ public class DataSeeder {
     @Bean
     public CommandLineRunner initData(RoleRepository roleRepository, UserRepository userRepository, PasswordEncoder encoder) {
         return args -> {
-            // 1. INIT ROLES (Kode asli Anda)
             if (roleRepository.count() == 0) {
                 Role admin = new Role(); admin.setName("ROLE_ADMIN");
                 Role seller = new Role(); seller.setName("ROLE_SELLER");
@@ -33,7 +32,6 @@ public class DataSeeder {
                 System.out.println("Data Seeder: Berhasil menyuntikkan 4 Role dasar ke database");
             }
 
-            // 2. INIT DEMO USERS (Tambahan untuk Level 7)
             createDemoUser("admin", "admin@seapedia.com", "password123", "ROLE_ADMIN", roleRepository, userRepository, encoder);
             createDemoUser("buyer1", "buyer@seapedia.com", "password123", "ROLE_BUYER", roleRepository, userRepository, encoder);
             createDemoUser("seller1", "seller@seapedia.com", "password123", "ROLE_SELLER", roleRepository, userRepository, encoder);
@@ -41,7 +39,6 @@ public class DataSeeder {
         };
     }
 
-    // Fungsi Helper agar kode tidak terlalu panjang di atas
     private void createDemoUser(String username, String email, String password, String roleName, 
                                 RoleRepository roleRepository, UserRepository userRepository, PasswordEncoder encoder) {
         if (!userRepository.existsByUsername(username)) {
@@ -51,7 +48,6 @@ public class DataSeeder {
             user.setPassword(encoder.encode(password));
             Set<Role> roles = new HashSet<>();
             
-            // Cari role dari database
             Role userRole = roleRepository.findByName(roleName)
                     .orElseThrow(() -> new RuntimeException("Error: Role " + roleName + " tidak ditemukan."));
             
