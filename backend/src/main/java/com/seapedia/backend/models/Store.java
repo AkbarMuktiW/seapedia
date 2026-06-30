@@ -2,6 +2,7 @@ package com.seapedia.backend.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data
 @Entity
@@ -14,6 +15,7 @@ public class Store {
     @Column(nullable = false, unique = true)
     private String name;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private User owner;
