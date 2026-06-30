@@ -106,4 +106,39 @@ public class SellerOrderController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    @GetMapping("/summary")
+    public ResponseEntity<?> getIncomeSummary() {
+        try {
+            Store myStore = getAuthenticatedSellerStore();
+            List<OrderTransaction> orders = orderTransactionRepository.findByStoreOrderByOrderDateDesc(myStore);
+
+            long grossRevenue = 0L;
+            int totalOrders = orders.size();
+            int pendingOrders = 0;
+            int processedOrders = 0;
+
+            for (OrderTransaction order : orders) {
+                long discount = (order.getDiscountAmount() != null) ? order.getDiscountAmount() : 0L;
+                grossRevenue += (order.getSubtotal() - discount);
+
+                if (order.getStatus().equals("Sedang Dikemas")) {
+                    pendingOrders++;
+                } else {
+                    processedOrders++;
+                }
+            }
+
+            java.util.Map<String, Object> report = new java.util.HashMap<>();
+            report.put("storeName", myStore.getName());
+            report.put("totalOrders", totalOrders);
+            report.put("pendingOrders", pendingOrders);
+            report.put("processedOrders", processedOrders);
+            report.put("grossRevenue", grossRevenue); // Total pendapatan bersih penjual
+
+            return ResponseEntity.ok(report);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(403).body(e.getMessage());
+        }
+    }
 }

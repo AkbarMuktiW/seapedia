@@ -219,4 +219,31 @@ public class OrderController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    @GetMapping("/summary")
+    public ResponseEntity<?> getSpendingSummary() {
+        try {
+            User buyer = getAuthenticatedBuyer();
+            List<OrderTransaction> orders = orderTransactionRepository.findByBuyerOrderByOrderDateDesc(buyer);
+
+            long totalSpending = 0L;
+            long totalDiscountSaved = 0L;
+            int totalOrders = orders.size();
+
+            for (OrderTransaction order : orders) {
+                totalSpending += order.getTotalAmount();
+                totalDiscountSaved += (order.getDiscountAmount() != null) ? order.getDiscountAmount() : 0L;
+            }
+
+            java.util.Map<String, Object> report = new java.util.HashMap<>();
+            report.put("totalOrders", totalOrders);
+            report.put("totalSpending", totalSpending);
+            report.put("totalDiscountSaved", totalDiscountSaved);
+            report.put("message", "Terima kasih telah berbelanja di SEAPEDIA");
+
+            return ResponseEntity.ok(report);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(403).body(e.getMessage());
+        }
+    }
 }
