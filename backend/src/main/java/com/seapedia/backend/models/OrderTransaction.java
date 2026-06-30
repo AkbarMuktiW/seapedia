@@ -33,6 +33,12 @@ public class OrderTransaction {
     @Column(nullable = false)
     private Long deliveryFee;
 
+    @Column(nullable = true)
+    private String discountCode;
+
+    @Column(nullable = false)
+    private Long discountAmount = 0L;
+
     @Column(nullable = false)
     private Long taxAmount; // PPN 12%
 

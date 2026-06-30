@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -71,6 +72,36 @@ public class SellerOrderController {
             response.put("statusHistory", history);
 
             return ResponseEntity.ok(response);
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @PutMapping("/{id}/process")
+    @org.springframework.transaction.annotation.Transactional
+    public ResponseEntity<?> processOrder(@PathVariable Long id) {
+        try {
+            Store myStore = getAuthenticatedSellerStore();
+            OrderTransaction order = orderTransactionRepository.findById(id)
+                    .orElseThrow(() -> new RuntimeException("Error: Pesanan tidak ditemukan."));
+
+            if (!order.getStore().getId().equals(myStore.getId())) {
+                return ResponseEntity.status(403).body("Error: Anda tidak berhak memproses pesanan toko lain.");
+            }
+
+            if (!order.getStatus().equals("Sedang Dikemas")) {
+                return ResponseEntity.badRequest().body("Error: Pesanan tidak bisa diproses. Status saat ini: " + order.getStatus());
+            }
+            order.setStatus("Menunggu Pengirim");
+            orderTransactionRepository.save(order);
+            OrderStatusHistory history = new OrderStatusHistory();
+            history.setOrder(order);
+            history.setStatus("Menunggu Pengirim");
+            history.setTimestamp(java.time.LocalDateTime.now());
+            orderStatusHistoryRepository.save(history);
+
+            return ResponseEntity.ok("Pesanan berhasil diproses! Status saat ini: Menunggu Pengirim.");
+
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

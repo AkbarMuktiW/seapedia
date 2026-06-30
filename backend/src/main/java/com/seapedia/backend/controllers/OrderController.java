@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/buyer/orders")
@@ -35,6 +36,10 @@ public class OrderController {
     OrderDetailRepository orderDetailRepository;
     @Autowired
     OrderStatusHistoryRepository orderStatusHistoryRepository;
+    @Autowired
+    VoucherRepository voucherRepository;
+    @Autowired
+    PromoRepository promoRepository;
 
     private User getAuthenticatedBuyer() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -68,16 +73,51 @@ public class OrderController {
             if (!deliveryAddress.getBuyer().getId().equals(buyer.getId())) {
                 return ResponseEntity.status(403).body("Error: Anda tidak berhak menggunakan alamat ini.");
             }
-
             Long subtotal = 0L;
             for (CartItem item : cartItems) {
                 Product product = item.getProduct();
                 if (product.getStock() < item.getQuantity()) {
-                    throw new RuntimeException("Error: Stok untuk '" + product.getName() + "' tidak mencukupi. Sisa stok: " + product.getStock());
+                    throw new RuntimeException("Error: Stok untuk '" + product.getName() + "' tidak mencukupi.");
                 }
                 subtotal += (product.getPrice() * item.getQuantity());
             }
+            Long discountAmount = 0L;
+            String appliedDiscountCode = null;
+            if (request.getDiscountCode() != null && !request.getDiscountCode().trim().isEmpty()) {
+                String code = request.getDiscountCode().trim().toUpperCase();
+                Optional<Promo> promoOpt = promoRepository.findByCode(code);
+                if (promoOpt.isPresent()) {
+                    Promo promo = promoOpt.get();
+                    if (promo.getExpiryDate().isBefore(LocalDateTime.now())) {
+                        throw new RuntimeException("Error: Promo sudah kedaluwarsa.");
+                    }
+                    discountAmount = (subtotal * promo.getDiscountPercentage()) / 100;
+                    appliedDiscountCode = code;
+                } else {
+                    Optional<Voucher> voucherOpt = voucherRepository.findByCode(code);
+                    if (voucherOpt.isPresent()) {
+                        Voucher voucher = voucherOpt.get();
+                        if (voucher.getExpiryDate().isBefore(LocalDateTime.now())) {
+                            throw new RuntimeException("Error: Voucher sudah kedaluwarsa.");
+                        }
+                        if (voucher.getRemainingUsage() <= 0) {
+                            throw new RuntimeException("Error: Kuota voucher sudah habis.");
+                        }
+                        
+                        discountAmount = voucher.getDiscountAmount();
+                        appliedDiscountCode = code;
+                        voucher.setRemainingUsage(voucher.getRemainingUsage() - 1);
+                        voucherRepository.save(voucher);
+                    } else {
+                        throw new RuntimeException("Error: Kode diskon tidak ditemukan atau tidak valid.");
+                    }
+                }
+            }
 
+            if (discountAmount > subtotal) {
+                discountAmount = subtotal;
+            }
+            Long subtotalAfterDiscount = subtotal - discountAmount;
             Long deliveryFee = 0L;
             switch (request.getDeliveryMethod().toUpperCase()) {
                 case "INSTANT": deliveryFee = 40000L; break;
@@ -86,8 +126,8 @@ public class OrderController {
                 default: throw new RuntimeException("Error: Metode pengiriman tidak valid.");
             }
 
-            Long taxAmount = (subtotal * 12) / 100;
-            Long totalAmount = subtotal + deliveryFee + taxAmount;
+            Long taxAmount = (subtotalAfterDiscount * 12) / 100;
+            Long totalAmount = subtotalAfterDiscount + deliveryFee + taxAmount;
             Wallet wallet = walletRepository.findByOwner(buyer)
                     .orElseThrow(() -> new RuntimeException("Error: Dompet tidak ditemukan."));
             
@@ -114,6 +154,8 @@ public class OrderController {
             order.setSubtotal(subtotal);
             order.setDeliveryFee(deliveryFee);
             order.setTaxAmount(taxAmount);
+            order.setDiscountCode(appliedDiscountCode);
+            order.setDiscountAmount(discountAmount);
             order.setTotalAmount(totalAmount);
             order.setStatus("Sedang Dikemas");
             order.setOrderDate(LocalDateTime.now());

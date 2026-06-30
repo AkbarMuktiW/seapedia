@@ -5,5 +5,6 @@ import lombok.Data;
 @Data
 public class CheckoutRequest {
     private Long addressId;
-    private String deliveryMethod; 
+    private String deliveryMethod;
+    private String discountCode;
 }
