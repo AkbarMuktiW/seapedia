@@ -18,7 +18,7 @@ public class Product {
     private String description;
 
     @Column(nullable = false)
-    private Double price;
+    private Long price;
 
     @Column(nullable = false)
     private Integer stock;
