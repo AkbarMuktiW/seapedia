@@ -5,6 +5,7 @@ import com.seapedia.backend.models.Voucher;
 import com.seapedia.backend.payload.request.PromoRequest;
 import com.seapedia.backend.payload.request.VoucherRequest;
 import com.seapedia.backend.repositories.PromoRepository;
+import com.seapedia.backend.repositories.UserRepository;
 import com.seapedia.backend.repositories.VoucherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,8 @@ public class AdminDiscountController {
     VoucherRepository voucherRepository;
     @Autowired
     PromoRepository promoRepository;
+    @Autowired
+    UserRepository userRepository;
 
     @PostMapping("/vouchers")
     public ResponseEntity<?> createVoucher(@RequestBody VoucherRequest request) {
@@ -59,5 +62,19 @@ public class AdminDiscountController {
     @GetMapping("/promos")
     public ResponseEntity<?> getAllPromos() {
         return ResponseEntity.ok(promoRepository.findAll());
+    }
+
+    @GetMapping("/vouchers/{id}")
+    public ResponseEntity<?> getVoucherDetail(@PathVariable Long id) {
+        return voucherRepository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.badRequest().build());
+    }
+
+    @GetMapping("/promos/{id}")
+    public ResponseEntity<?> getPromoDetail(@PathVariable Long id) {
+        return promoRepository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.badRequest().build());
     }
 }
