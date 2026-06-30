@@ -119,8 +119,10 @@ public class SellerOrderController {
             int processedOrders = 0;
 
             for (OrderTransaction order : orders) {
-                long discount = (order.getDiscountAmount() != null) ? order.getDiscountAmount() : 0L;
-                grossRevenue += (order.getSubtotal() - discount);
+                if (!order.getStatus().equals("Dikembalikan")) {
+                    long discount = (order.getDiscountAmount() != null) ? order.getDiscountAmount() : 0L;
+                    grossRevenue += (order.getSubtotal() - discount);
+                }
 
                 if (order.getStatus().equals("Sedang Dikemas")) {
                     pendingOrders++;
