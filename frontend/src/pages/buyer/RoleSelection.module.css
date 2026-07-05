@@ -1,0 +1,106 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  position: relative;
+}
+
+.contentArea {
+  padding: 40px 24px;
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 100px;
+}
+
+.headerTitle {
+  font-family: 'Afacad', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.roleCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px;
+  border: 1px solid #9BA4B5;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-color: #FFFFFF;
+}
+
+.roleCard.active {
+  border: 2px solid #0088FF;
+  background-color: #F0F8FF;
+}
+
+.roleIcon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 12px;
+}
+
+.roleName {
+  font-family: 'Afacad', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 8px;
+}
+
+.roleDesc {
+  font-family: 'Afacad', sans-serif;
+  font-size: 12px;
+  color: #777777;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.bottomContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px;
+  background-color: #FFFFFF;
+  border-top: 1px solid #EAEAEA;
+  box-sizing: border-box;
+}
+
+.btnLanjutkan {
+  width: 100%;
+  background-color: #0088FF;
+  color: #FFFFFF;
+  border: none;
+  padding: 16px;
+  border-radius: 8px;
+  font-family: 'Afacad', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: opacity 0.2s ease;
+}
+
+.btnLanjutkan:disabled {
+  background-color: #CCCCCC;
+  cursor: not-allowed;
+}
+
+.btnLanjutkan:active:not(:disabled) {
+  opacity: 0.8;
+}

@@ -1,0 +1,24 @@
+.btnPrimary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 24px;
+  width: 100%;
+  background-color: #0088FF;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: opacity 0.2s ease;
+}
+
+.btnPrimary:hover {
+  opacity: 0.85;
+}
+
+.btnText {
+  font-family: 'Afacad', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #FFFFFF;
+}

@@ -51,7 +51,9 @@ public class SecurityConfig {
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers("/api/reviews/**").permitAll()
                 .requestMatchers("/api/catalog/**").permitAll()
-                .requestMatchers("/").permitAll()            
+                .requestMatchers("/").permitAll()
+                .requestMatchers("/v3/api-docs", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html", "/swagger-resources/**", "/webjars/**").permitAll()
+                .requestMatchers("/error").permitAll()            
                 .anyRequest().authenticated()                
             );
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);

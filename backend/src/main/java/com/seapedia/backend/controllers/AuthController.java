@@ -1,5 +1,6 @@
 package com.seapedia.backend.controllers;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import com.seapedia.backend.models.Role;
 import com.seapedia.backend.models.User;
 import com.seapedia.backend.payload.request.SignupRequest;
@@ -25,6 +26,7 @@ import java.util.stream.Collectors;
 import java.util.HashSet;
 import java.util.Set;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {

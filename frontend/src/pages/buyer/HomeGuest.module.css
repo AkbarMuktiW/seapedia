@@ -1,0 +1,173 @@
+/* Wadah Utama */
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: #EAEAEA;
+  position: relative;
+  overflow: hidden;
+}
+
+.header {
+  background-image: url('../../assets/images/bg-header-batik.png');
+  background-size: cover;
+  background-position: center;
+  padding: 16px 16px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btnLogin {
+  align-self: flex-start;
+  background-color: #FFFFFF;
+  color: #2A5D84;
+  border: 1px solid #CCCCCC;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-family: 'Afacad', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.searchRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.searchBar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.searchIcon {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  opacity: 0.5;
+}
+
+.searchInput {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+}
+
+.actionIcon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.scrollableContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.bannerBox {
+  width: 100%;
+  height: 120px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  
+  background-image: url('../../assets/images/bg-login.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bannerLogo {
+  width: 180px;
+  height: auto;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.productCard {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.productImagePlaceholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #999999;
+}
+
+.productInfo {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.productName {
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  color: #333333;
+}
+
+.productPrice {
+  font-family: 'Afacad', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #F27830;
+}
+
+.bottomNav {
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 24px;
+  border-top: 1px solid #DDDDDD;
+  z-index: 10;
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Afacad', sans-serif;
+  font-size: 12px;
+  color: #888888;
+  cursor: pointer;
+}
+
+.navItem.active {
+  color: #2A5D84;
+  font-weight: 700;
+}
+
+.navIcon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+}
