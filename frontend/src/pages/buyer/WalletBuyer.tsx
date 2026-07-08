@@ -69,7 +69,8 @@ export default function WalletBuyer() {
           <span>Dompet</span>
         </div>
         
-        <div className={styles.navItem}>
+        <div className={styles.navItem}
+          onClick={() => navigate('/favorit')}>
           <img src={iconHeartOutline} alt="Favorit" className={styles.navIcon} />
           <span>Favorit</span>
         </div>

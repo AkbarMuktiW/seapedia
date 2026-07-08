@@ -1,0 +1,266 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: #F8F9FA;
+  position: relative;
+  overflow: hidden;
+}
+
+.scrollArea {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* BANNER */
+.banner {
+  background: #5E819D url('../../assets/images/bg-header-batik.png') center/cover no-repeat;
+  padding: 16px 20px 24px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.roleBadge {
+  background-color: #FFFFFF;
+  color: #5E819D;
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badgeIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.chatIcon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.profileRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #FFFFFF;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  background-color: #999999;
+  border-radius: 50%;
+}
+
+.profileText {
+  display: flex;
+  flex-direction: column;
+}
+
+.profileText p {
+  margin: 0;
+  font-family: 'Afacad', sans-serif;
+  font-size: 13px;
+}
+
+.profileText strong {
+  font-family: 'Afacad', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* DASHBOARD (LATAR PUTIH) */
+.dashboardSection {
+  background-color: #FFFFFF;
+  padding: 16px 20px 24px 20px;
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.sectionTitle {
+  font-family: 'Afacad', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 16px;
+}
+
+.incomeCard {
+  background-color: #64819D;
+  border-radius: 8px;
+  padding: 20px;
+  color: #FFFFFF;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.incomeLabel {
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.incomeAmount {
+  font-family: 'Afacad', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.incomeSub {
+  font-family: 'Afacad', sans-serif;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.btnWithdraw {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0088FF;
+  color: #FFFFFF;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: 'Afacad', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* AREA KONTEN BAWAH (STATISTIK & ULASAN) */
+.contentArea {
+  padding: 16px 20px 80px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid #EAEAEA;
+  display: flex;
+  flex-direction: column;
+}
+
+.chartPlaceholder {
+  width: 100%;
+  height: 180px;
+  background-color: #F0F0F0;
+  border: 1px dashed #CCCCCC;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  color: #888888;
+}
+
+.reviewItem {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 0;
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.reviewItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.reviewerHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.reviewerAvatar {
+  width: 32px;
+  height: 32px;
+  background-color: #EAEAEA;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.reviewerInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewerName {
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.stars {
+  color: #FFB800;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-top: 2px;
+}
+
+.reviewText {
+  font-family: 'Afacad', sans-serif;
+  font-size: 13px;
+  color: #555555;
+  margin: 0;
+}
+
+/* NAVBAR BAWAH */
+.bottomNav {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background-color: #FFFFFF;
+  border-top: 1px solid #EAEAEA;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Afacad', sans-serif;
+  font-size: 12px;
+  color: #888888;
+  cursor: pointer;
+}
+
+.navItem.active {
+  color: #5E819D;
+}
+
+.navIcon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+}

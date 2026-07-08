@@ -1,0 +1,214 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.scrollArea {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.banner {
+  background: #5E819D url('../../assets/images/bg-header-batik.png') center/cover no-repeat;
+  padding: 16px 20px 24px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.roleBadge {
+  background-color: #FFFFFF;
+  color: #5E819D;
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badgeIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.chatIcon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.profileRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #FFFFFF;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  background-color: #999999;
+  border-radius: 50%;
+}
+
+.profileText {
+  display: flex;
+  flex-direction: column;
+}
+
+.profileText p {
+  margin: 0;
+  font-family: 'Afacad', sans-serif;
+  font-size: 13px;
+}
+
+.profileText strong {
+  font-family: 'Afacad', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.formArea {
+  padding: 16px 20px 40px 20px;
+}
+
+.headerTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  font-family: 'Afacad', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.backIcon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.uploadBox {
+  width: 100%;
+  height: 140px;
+  border: 1px dashed #333333;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background-color: #FAFAFA;
+}
+
+.uploadIcon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 8px;
+}
+
+.uploadBox span {
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  color: #111111;
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.inputGroup label {
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #111111;
+}
+
+.inputField {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #CCCCCC;
+  border-radius: 8px;
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+  background-color: #FFFFFF;
+}
+
+.inputField:focus, .textAreaField:focus {
+  border-color: #5E819D;
+}
+
+.rowSplit {
+  display: flex;
+  gap: 16px;
+}
+
+.rowSplit .inputGroup {
+  flex: 1;
+}
+
+.textAreaField {
+  width: 100%;
+  height: 120px;
+  padding: 12px;
+  border: 1px solid #CCCCCC;
+  border-radius: 8px;
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+  resize: none;
+  background-color: #FFFFFF;
+}
+
+.btnSimpan {
+  width: 100%;
+  background-color: #64819D;
+  color: #FFFFFF;
+  border: none;
+  padding: 16px;
+  border-radius: 8px;
+  font-family: 'Afacad', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 12px;
+  box-sizing: border-box;
+  transition: background-color 0.2s;
+}
+
+.btnSimpan:active {
+  background-color: #4A657D;
+}

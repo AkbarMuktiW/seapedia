@@ -54,7 +54,7 @@ export default function HomeBuyer() {
 
         <div className={styles.productGrid}>
           {dummyProducts.map((_, index) => (
-            <div key={index} className={styles.productCard}>
+            <div key={index} className={styles.productCard} onClick={() =>{'/detail-produk'}} style={{cursor: 'pointer'}}>
               <div className={styles.productImagePlaceholder}></div>
               <div className={styles.productInfo}>
                 <span className={styles.productName}>Nama Produk {index + 1}</span>
@@ -79,7 +79,8 @@ export default function HomeBuyer() {
           <span>Dompet</span>
         </div>
         
-        <div className={styles.navItem}>
+        <div className={styles.navItem}
+          onClick={() => navigate('/favorit')}>
           <img src={iconHeartOutline} alt="Favorit" className={styles.navIcon} />
           <span>Favorit</span>
         </div>

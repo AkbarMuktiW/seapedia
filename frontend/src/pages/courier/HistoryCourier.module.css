@@ -1,0 +1,297 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: #F8F9FA;
+  position: relative;
+  overflow: hidden;
+}
+
+.scrollArea {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* BANNER */
+.banner {
+  background: #5E819D url('../../assets/images/bg-header-batik.png') center/cover no-repeat;
+  padding: 16px 20px 24px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.roleBadge {
+  background-color: #FFFFFF;
+  color: #5E819D;
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badgeIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.chatIcon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.profileRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #FFFFFF;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  background-color: #999999;
+  border-radius: 50%;
+}
+
+.profileText {
+  display: flex;
+  flex-direction: column;
+}
+
+.profileText p {
+  margin: 0;
+  font-family: 'Afacad', sans-serif;
+  font-size: 13px;
+}
+
+.profileText strong {
+  font-family: 'Afacad', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* HEADER PENCARIAN (LATAR PUTIH) */
+.searchHeaderSection {
+  background-color: #FFFFFF;
+  padding: 16px 20px;
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.pageTitle {
+  font-family: 'Afacad', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 12px;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  border: 1px solid #CCCCCC;
+  border-radius: 8px;
+  padding: 10px 12px;
+  background-color: #FFFFFF;
+}
+
+.searchBox input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-family: 'Afacad', sans-serif;
+}
+
+.searchIcon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.5;
+  margin-right: 8px;
+}
+
+/* AREA KARTU RIWAYAT */
+.contentArea {
+  padding: 16px 20px 80px 20px;
+}
+
+.jobList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.jobCard {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid #EAEAEA;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.orderId {
+  font-family: 'Afacad', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #111111;
+}
+
+/* Badge Selesai */
+.badgeCompleted {
+  background-color: #E2E2E2;
+  color: #555555;
+  font-family: 'Afacad', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 16px;
+}
+
+/* TIMELINE */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background-color: #DDDDDD;
+}
+
+.timelineNode {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.timelineNode::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #64819D;
+}
+
+.nodeTitle {
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 4px;
+}
+
+.nodeName {
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  color: #333333;
+}
+
+.nodeAddress {
+  font-family: 'Afacad', sans-serif;
+  font-size: 13px;
+  color: #888888;
+}
+
+/* AREA INFO BAWAH */
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid #F0F0F0;
+}
+
+.distanceBox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.distanceBox img {
+  width: 16px;
+  height: 16px;
+}
+
+.distanceText {
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.earningsText {
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111111;
+}
+
+/* NAVBAR BAWAH */
+.bottomNav {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background-color: #FFFFFF;
+  border-top: 1px solid #EAEAEA;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Afacad', sans-serif;
+  font-size: 12px;
+  color: #888888;
+  cursor: pointer;
+}
+
+.navItem.active {
+  color: #5E819D;
+}
+
+.navIcon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+}

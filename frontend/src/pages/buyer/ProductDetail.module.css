@@ -1,0 +1,212 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: #F8F9FA;
+  position: relative;
+  overflow: hidden;
+}
+
+.scrollArea {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 60px; /* Memberikan ruang agar konten tidak tertutup bottom bar */
+}
+
+/* HEADER BATIK */
+.banner {
+  background: #5E819D url('../../assets/images/bg-header-batik.png') center/cover no-repeat;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.btnKeluar {
+  background-color: #FFFFFF;
+  color: #5E819D;
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.backIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.cartIconWhite {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+/* GAMBAR PRODUK */
+.productImage {
+  width: 100%;
+  height: 380px;
+  background-color: #D9D9D9; /* Placeholder gambar abu-abu */
+}
+
+/* INFO PRODUK */
+.infoSection {
+  background-color: #FFFFFF;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.infoLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.priceText {
+  font-family: 'Afacad', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #5E819D;
+  margin: 0;
+}
+
+.stockText {
+  font-family: 'Afacad', sans-serif;
+  font-size: 12px;
+  color: #888888;
+  margin: 4px 0;
+}
+
+.titleText {
+  font-family: 'Afacad', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+}
+
+.favIcon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+/* PEMISAH TEBAL (Antara Info Produk & Toko) */
+.dividerThick {
+  width: 100%;
+  height: 8px;
+  background-color: #EAEAEA;
+}
+
+/* PROFIL TOKO */
+.storeSection {
+  background-color: #FFFFFF;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.storeAvatar {
+  width: 40px;
+  height: 40px;
+  background-color: #EAEAEA;
+  border-radius: 50%;
+}
+
+.storeName {
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111111;
+}
+
+/* DESKRIPSI PRODUK */
+.descSection {
+  background-color: #FFFFFF;
+  padding: 16px 20px;
+  flex: 1; /* Mengisi sisa ruang ke bawah jika layar panjang */
+}
+
+.descTitle {
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 8px;
+}
+
+.descContent {
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  color: #111111;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+/* BOTTOM ACTION BAR */
+.bottomBar {
+  display: flex;
+  height: 60px;
+  background-color: #FFFFFF;
+  border-top: 1px solid #EAEAEA;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.iconButton {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #FFFFFF;
+}
+
+.iconButton img {
+  width: 24px;
+  height: 24px;
+}
+
+.verticalDivider {
+  width: 1px;
+  background-color: #EAEAEA;
+  margin: 12px 0;
+}
+
+.btnBuy {
+  flex: 2; /* Membuat tombol beli lebih lebar dari ikon */
+  background-color: #64819D;
+  color: #FFFFFF;
+  font-family: 'Afacad', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnBuy:active {
+  background-color: #4A657D;
+}
