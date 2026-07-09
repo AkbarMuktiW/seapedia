@@ -23,8 +23,6 @@ interface JobItem {
 
 export default function HomeCourier() {
   const navigate = useNavigate();
-
-  // Menyiapkan beberapa data pekerjaan agar halaman bisa di-scroll
   const [jobs, setJobs] = useState<JobItem[]>([
     {
       id: 'xxx-xxx-xxx',
@@ -51,7 +49,7 @@ export default function HomeCourier() {
       buyerName: 'Siti Aminah',
       buyerAddress: 'Apartemen Sentosa Tower B',
       distance: '8.2 Km',
-      isCompleted: true // Diset true untuk mendemonstrasikan status yang sudah selesai
+      isCompleted: true
     }
   ]);
 
@@ -149,7 +147,6 @@ export default function HomeCourier() {
         </div>
       </div>
 
-      {/* NAVBAR BAWAH - DIPERBARUI */}
       <div className={styles.bottomNav}>
         <div className={`${styles.navItem} ${styles.active}`}>
           <img src={homeFill} alt="Beranda" className={styles.navIcon} />

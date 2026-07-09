@@ -5,7 +5,7 @@
   max-width: 480px;
   height: 100vh;
   margin: 0 auto;
-  background-color: #F8F9FA;
+  background-color: #EAEAEA;
   position: relative;
   overflow: hidden;
 }
@@ -17,7 +17,6 @@
   flex-direction: column;
 }
 
-/* BANNER */
 .banner {
   background: #5E819D url('../../assets/images/bg-header-batik.png') center/cover no-repeat;
   padding: 16px 20px 24px 20px;
@@ -87,11 +86,10 @@
   font-weight: 700;
 }
 
-/* DASHBOARD */
 .dashboardSection {
   background-color: #FFFFFF;
   padding: 16px 20px;
-  border-bottom: 8px solid #F8F9FA; /* Jarak abu-abu antara dashboard dan pekerjaan aktif */
+  border-bottom: 8px solid #F8F9FA;
 }
 
 .sectionTitle {
@@ -147,10 +145,9 @@
   cursor: pointer;
 }
 
-/* PEKERJAAN AKTIF (LATAR PUTIH PENUH) */
 .activeJobSection {
   background-color: #FFFFFF;
-  padding: 16px 20px 80px 20px; /* 80px untuk menghindari tertutup bottom nav */
+  padding: 16px 20px 80px 20px;
   flex: 1;
 }
 

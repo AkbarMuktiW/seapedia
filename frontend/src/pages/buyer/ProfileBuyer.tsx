@@ -3,7 +3,7 @@ import styles from './ProfileBuyer.module.css';
 
 import iconCartWhite from '../../assets/icons/icon-cart.svg';
 import iconChatWhite from '../../assets/icons/icon-chat.svg';
-import iconBagBlue from '../../assets/icons/icon-bag-blue.svg'; // Ikon tas di badge pembeli
+import iconBagBlue from '../../assets/icons/icon-bag-blue.svg';
 import iconDikemas from '../../assets/icons/icon-dikemas.svg';
 import iconPickup from '../../assets/icons/icon-pickup.svg';
 import iconDikirim from '../../assets/icons/icon-dikirim.svg';

@@ -1,27 +1,21 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './HomeSeller.module.css';
 
-// Ikon Banner & Aset
 import iconSeller from '../../assets/icons/icon-seller.svg';
 import iconChat from '../../assets/icons/icon-chat.svg';
 
-// Ikon Navbar Bawah
-import homeFill from '../../assets/icons/home-fill.svg'; // Ikon aktif
+import homeFill from '../../assets/icons/home-fill.svg';
 import navProductOutline from '../../assets/icons/nav-product-outline.svg';
 import navOrderOutline from '../../assets/icons/nav-order-outline.svg';
 import userOutline from '../../assets/icons/user-outline.svg';
 
 export default function HomeSeller() {
   const navigate = useNavigate();
-
-  // Data ulasan dummy dari pelanggan
   const dummyReviews = Array.from({ length: 3 });
 
   return (
     <div className={styles.container}>
       <div className={styles.scrollArea}>
-        
-        {/* BANNER HEADER */}
         <div className={styles.banner}>
           <div className={styles.topRow}>
             <div className={styles.roleBadge}>
@@ -45,7 +39,6 @@ export default function HomeSeller() {
           </div>
         </div>
 
-        {/* AREA DASHBOARD (LATAR PUTIH) */}
         <div className={styles.dashboardSection}>
           <div className={styles.sectionTitle}>Dashboard</div>
           
@@ -57,7 +50,6 @@ export default function HomeSeller() {
           </div>
         </div>
 
-        {/* AREA BAWAH (STATISTIK & ULASAN) */}
         <div className={styles.contentArea}>
           
           {/* Kartu Statistik */}
@@ -68,7 +60,6 @@ export default function HomeSeller() {
             </div>
           </div>
 
-          {/* Kartu Ulasan Pelanggan */}
           <div className={styles.card}>
             <div className={styles.sectionTitle}>Ulasan Pelanggan</div>
             
@@ -92,9 +83,7 @@ export default function HomeSeller() {
         </div>
       </div>
 
-      {/* NAVBAR BAWAH */}
       <div className={styles.bottomNav}>
-        {/* Ikon Beranda Aktif */}
         <div className={`${styles.navItem} ${styles.active}`}>
           <img src={homeFill} alt="Beranda" className={styles.navIcon} />
           <span>Beranda</span>

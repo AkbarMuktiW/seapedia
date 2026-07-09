@@ -24,8 +24,6 @@ interface HistoryItem {
 
 export default function HistoryCourier() {
   const navigate = useNavigate();
-
-  // Data riwayat (sudah selesai)
   const [historyJobs] = useState<HistoryItem[]>([
     {
       id: 'XXX-XXX-123',
@@ -59,8 +57,6 @@ export default function HistoryCourier() {
   return (
     <div className={styles.container}>
       <div className={styles.scrollArea}>
-        
-        {/* BANNER HEADER */}
         <div className={styles.banner}>
           <div className={styles.topRow}>
             <div className={styles.roleBadge}>
@@ -84,7 +80,6 @@ export default function HistoryCourier() {
           </div>
         </div>
 
-        {/* HEADER RIWAYAT PEKERJAAN (PUTIH) */}
         <div className={styles.searchHeaderSection}>
           <div className={styles.pageTitle}>Riwayat Pekerjaan</div>
           <div className={styles.searchBox}>
@@ -93,7 +88,6 @@ export default function HistoryCourier() {
           </div>
         </div>
 
-        {/* DAFTAR RIWAYAT (ABU-ABU) */}
         <div className={styles.contentArea}>
           <div className={styles.jobList}>
             {historyJobs.map((job) => (
@@ -118,7 +112,6 @@ export default function HistoryCourier() {
                   </div>
                 </div>
 
-                {/* Tanpa Tombol, Hanya Meta Jarak & Penghasilan */}
                 <div className={styles.metaRow}>
                   <div className={styles.distanceBox}>
                     <img src={iconLocation} alt="Location" />
@@ -133,7 +126,6 @@ export default function HistoryCourier() {
         </div>
       </div>
 
-      {/* NAVBAR BAWAH */}
       <div className={styles.bottomNav}>
         <div className={styles.navItem} onClick={() => navigate('/beranda-kurir')}>
           <img src={homeOutline} alt="Beranda" className={styles.navIcon} />
@@ -145,7 +137,6 @@ export default function HistoryCourier() {
           <span>Cari Job</span>
         </div>
         
-        {/* Ikon Riwayat Aktif */}
         <div className={`${styles.navItem} ${styles.active}`}>
           <img src={historyFill} alt="Riwayat" className={styles.navIcon} />
           <span>Riwayat</span>

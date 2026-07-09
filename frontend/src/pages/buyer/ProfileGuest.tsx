@@ -67,7 +67,9 @@ export default function ProfileGuest() {
           <span>Dompet</span>
         </div>
         
-        <div className={styles.navItem}>
+        <div 
+          className={styles.navItem}
+          onClick={() => navigate('/favorit-guest')}>
           <img src={iconHeartOutline} alt="Favorit" className={styles.navIcon} />
           <span>Favorit</span>
         </div>

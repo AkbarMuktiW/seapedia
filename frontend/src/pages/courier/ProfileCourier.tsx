@@ -1,16 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './ProfileCourier.module.css';
 
-// Ikon Banner & Meta
 import iconCourier from '../../assets/icons/icon-courier.svg';
 import iconChat from '../../assets/icons/icon-chat.svg';
 
-// Ikon Menu
 import iconThumb from '../../assets/icons/icon-thumb.svg';
 import iconLogout from '../../assets/icons/icon-logout.svg';
 import iconArrowRight from '../../assets/icons/icon-arrow-right.svg';
 
-// Ikon Navbar Bawah
 import homeOutline from '../../assets/icons/home-outline.svg';
 import iconSearchJob from '../../assets/icons/icon-search.svg'; 
 import historyOutline from '../../assets/icons/history-outline.svg';
@@ -18,20 +15,14 @@ import userFill from '../../assets/icons/user-fill.svg'; // Ikon menu "Saya" akt
 
 export default function ProfileCourier() {
   const navigate = useNavigate();
-
   const handleLogout = () => {
-    // Fungsi simulasi logout, diarahkan kembali ke rute guest/awal
     navigate('/');
   };
-
-  // Data ulasan dummy agar tampil seperti di wireframe
   const dummyReviews = Array.from({ length: 2 });
 
   return (
     <div className={styles.container}>
       <div className={styles.scrollArea}>
-        
-        {/* BANNER HEADER */}
         <div className={styles.banner}>
           <div className={styles.topRow}>
             <div className={styles.roleBadge}>
@@ -49,16 +40,12 @@ export default function ProfileCourier() {
           <div className={styles.profileRow}>
             <div className={styles.avatar}></div>
             <div className={styles.profileText}>
-              {/* Di wireframe, hanya ada tulisan Nama Kurir (tanpa Halo,) */}
               <strong>Nama Kurir</strong>
             </div>
           </div>
         </div>
 
-        {/* AREA KONTEN (MENU & ULASAN) */}
         <div className={styles.contentArea}>
-          
-          {/* Menu List */}
           <div className={styles.menuCard}>
             <div className={styles.menuItem} onClick={() => navigate('/tulis-ulasan')}>
               <div className={styles.menuLeft}>
@@ -77,7 +64,6 @@ export default function ProfileCourier() {
             </div>
           </div>
 
-          {/* Daftar Ulasan */}
           <div className={styles.reviewList}>
             {dummyReviews.map((_, index) => (
               <div key={index} className={styles.reviewItem}>
@@ -98,7 +84,6 @@ export default function ProfileCourier() {
         </div>
       </div>
 
-      {/* NAVBAR BAWAH */}
       <div className={styles.bottomNav}>
         <div className={styles.navItem} onClick={() => navigate('/beranda-kurir')}>
           <img src={homeOutline} alt="Beranda" className={styles.navIcon} />
@@ -115,7 +100,6 @@ export default function ProfileCourier() {
           <span>Riwayat</span>
         </div>
         
-        {/* Ikon Saya Aktif (Fill) */}
         <div className={`${styles.navItem} ${styles.active}`}>
           <img src={userFill} alt="Saya" className={styles.navIcon} />
           <span>Saya</span>

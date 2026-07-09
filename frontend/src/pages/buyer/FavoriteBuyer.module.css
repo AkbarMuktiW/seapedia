@@ -5,7 +5,7 @@
   max-width: 480px;
   height: 100vh;
   margin: 0 auto;
-  background-color: #EAEAEA; /* Sesuai wireframe, latar belakang grid agak abu-abu */
+  background-color: #EAEAEA;
   position: relative;
   overflow: hidden;
 }
@@ -43,7 +43,6 @@
   margin: 0;
 }
 
-/* KONTEN GRID PRODUK */
 .contentArea {
   padding: 16px 20px 80px 20px;
   display: grid;
@@ -58,21 +57,27 @@
   display: flex;
   flex-direction: column;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.productCard:active {
+  transform: scale(0.98);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 .productImage {
   width: 100%;
   height: 140px;
-  background-color: #999999; /* Kotak abu-abu sesuai wireframe */
+  background-color: #999999;
 }
 
 .productInfo {
   width: 100%;
   height: 60px;
-  background-color: #FFFFFF; /* Kotak putih di bawah gambar */
+  background-color: #FFFFFF;
 }
 
-/* NAVBAR BAWAH PEMBELI */
 .bottomNav {
   display: flex;
   justify-content: space-between;

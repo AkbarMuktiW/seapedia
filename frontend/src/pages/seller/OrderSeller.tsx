@@ -29,8 +29,6 @@ interface OrderItem {
 
 export default function OrderSeller() {
   const navigate = useNavigate();
-
-  // Data disesuaikan: Card 1 (1 Produk), Card 2 (2 Produk), Card 3 (1 Produk)
   const [orders, setOrders] = useState<OrderItem[]>([
     {
       id: 'xxx-xxx-xxx',
@@ -132,7 +130,6 @@ export default function OrderSeller() {
                   </div>
                 </div>
 
-                {/* Looping Produk: Setiap produk sekarang memiliki foto dan teksnya sendiri */}
                 <div className={styles.productWrapper}>
                   {order.products.map((product, index) => (
                     <div key={index} className={styles.productRow}>

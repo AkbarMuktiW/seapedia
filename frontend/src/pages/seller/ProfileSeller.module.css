@@ -17,7 +17,6 @@
   flex-direction: column;
 }
 
-/* BANNER */
 .banner {
   background: #5E819D url('../../assets/images/bg-header-batik.png') center/cover no-repeat;
   padding: 16px 20px 24px 20px;
@@ -87,7 +86,6 @@
   font-weight: 700;
 }
 
-/* KONTEN TENGAH */
 .contentArea {
   padding: 16px 20px 80px 20px;
   display: flex;
@@ -95,7 +93,6 @@
   gap: 16px;
 }
 
-/* KARTU STATUS PESANAN */
 .statusCard {
   background-color: #FFFFFF;
   border-radius: 8px;
@@ -144,7 +141,6 @@
   text-align: center;
 }
 
-/* MENU LIST (Ulasan & Logout) */
 .menuCard {
   background-color: #FFFFFF;
   border-radius: 8px;
@@ -186,7 +182,6 @@
   opacity: 0.5;
 }
 
-/* DAFTAR ULASAN */
 .reviewList {
   background-color: #FFFFFF;
   border-radius: 8px;
@@ -246,7 +241,6 @@
   margin: 0;
 }
 
-/* NAVBAR BAWAH */
 .bottomNav {
   display: flex;
   justify-content: space-between;

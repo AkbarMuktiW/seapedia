@@ -28,6 +28,9 @@ import HistoryCourier from './pages/courier/HistoryCourier';
 import ProfileCourier from './pages/courier/ProfileCourier';
 import FavoriteBuyer from './pages/buyer/FavoriteBuyer';
 import ProductDetail from './pages/buyer/ProductDetail';
+import FavoriteGuest from './pages/buyer/FavoriteGuest';
+import ProductDetailGuest from './pages/buyer/ProductDetailGuest';
+import CheckoutGuest from './pages/buyer/CheckoutGuest';
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -47,11 +50,14 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomeGuest />} />
+        <Route path="/detail-produk-guest" element={<ProductDetailGuest />} />
         <Route path="/dompet" element={<WalletGuest />} />
+        <Route path='/favorit-guest' element={<FavoriteGuest />} />
         <Route path="/keranjang" element={<CartGuest />} />
         <Route path="/pesan" element={<ChatGuest />} />
         <Route path="/profil" element={<ProfileGuest />} />
         <Route path="/tulis-ulasan" element={<WriteReviewGuest />} />
+        <Route path="/checkout-guest" element={<CheckoutGuest />} />
         <Route path="/login" element={<Login />} />
         <Route path="/pilih-peran" element={<RoleSelection />} />
         <Route path="/beranda-pembeli" element={<HomeBuyer />} />

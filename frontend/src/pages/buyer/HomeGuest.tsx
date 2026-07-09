@@ -1,13 +1,11 @@
 import styles from './HomeGuest.module.css';
 import { useNavigate } from 'react-router-dom';
 
-// 1. Import Ikon Header & Logo
 import logoFull from '../../assets/images/logo-seapedia-full.png';
 import iconSearch from '../../assets/icons/icon-search.svg';
 import iconCart from '../../assets/icons/icon-cart.svg';
 import iconChat from '../../assets/icons/icon-chat.svg';
 
-// 2. Import Ikon Navigasi Bawah
 import iconHomeFill from '../../assets/icons/home-fill.svg';
 import iconWalletOutline from '../../assets/icons/wallet-outline.svg';
 import iconHeartOutline from '../../assets/icons/heart-outline.svg';
@@ -57,7 +55,10 @@ export default function HomeGuest() {
 
         <div className={styles.productGrid}>
           {dummyProducts.map((_, index) => (
-            <div key={index} className={styles.productCard}>
+            <div 
+              key={index} 
+              className={styles.productCard}
+              onClick={() => navigate('/detail-produk-guest')}>
               <div className={styles.productImagePlaceholder}></div>
               <div className={styles.productInfo}>
                 <span className={styles.productName}>Nama Produk {index + 1}</span>
@@ -82,7 +83,10 @@ export default function HomeGuest() {
           <span>Dompet</span>
         </div>
         
-        <div className={styles.navItem}>
+        <div 
+          className={styles.navItem}
+          onClick={() => navigate('/favorit-guest')}
+        >
           <img src={iconHeartOutline} alt="Favorit" className={styles.navIcon} />
           <span>Favorit</span>
         </div>

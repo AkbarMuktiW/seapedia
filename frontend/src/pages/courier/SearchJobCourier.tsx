@@ -24,7 +24,6 @@ interface JobItem {
 
 export default function SearchJobCourier() {
   const navigate = useNavigate();
-
   const [availableJobs, setAvailableJobs] = useState<JobItem[]>([
     {
       id: 'XXX-XXX-123',
@@ -54,8 +53,6 @@ export default function SearchJobCourier() {
       earnings: '+Rp22000'
     }
   ]);
-
-  // Fungsi untuk menghapus pekerjaan dari list ketika diambil
   const handleTakeJob = (jobId: string) => {
     setAvailableJobs(prevJobs => prevJobs.filter(job => job.id !== jobId));
   };
@@ -63,8 +60,6 @@ export default function SearchJobCourier() {
   return (
     <div className={styles.container}>
       <div className={styles.scrollArea}>
-        
-        {/* BANNER HEADER */}
         <div className={styles.banner}>
           <div className={styles.topRow}>
             <div className={styles.roleBadge}>
@@ -88,7 +83,6 @@ export default function SearchJobCourier() {
           </div>
         </div>
 
-        {/* HEADER CARI PEKERJAAN (PUTIH) */}
         <div className={styles.searchHeaderSection}>
           <div className={styles.pageTitle}>Cari Pekerjaan</div>
           <div className={styles.searchBox}>
@@ -97,7 +91,6 @@ export default function SearchJobCourier() {
           </div>
         </div>
 
-        {/* DAFTAR PEKERJAAN (ABU-ABU) */}
         <div className={styles.contentArea}>
           <div className={styles.jobList}>
             {availableJobs.map((job) => (
@@ -143,14 +136,12 @@ export default function SearchJobCourier() {
         </div>
       </div>
 
-      {/* NAVBAR BAWAH */}
       <div className={styles.bottomNav}>
         <div className={styles.navItem} onClick={() => navigate('/beranda-kurir')}>
           <img src={homeOutline} alt="Beranda" className={styles.navIcon} />
           <span>Beranda</span>
         </div>
         
-        {/* Ikon Cari Job Aktif */}
         <div className={`${styles.navItem} ${styles.active}`}>
           <img src={iconSearchJob} alt="Cari Job" className={styles.navIcon} />
           <span>Cari Job</span>

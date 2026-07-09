@@ -132,6 +132,7 @@
   color: #111111;
 }
 
+/* DESKRIPSI PRODUK */
 .descSection {
   background-color: #FFFFFF;
   padding: 16px 20px;
@@ -154,7 +155,6 @@
   white-space: pre-line;
 }
 
-/* BOTTOM ACTION BAR */
 .bottomBar {
   display: flex;
   height: 60px;
@@ -203,74 +203,4 @@
 
 .btnBuy:active {
   background-color: #4A657D;
-}
-
-.modalOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-}
-
-.modalContent {
-  background-color: #FFFFFF;
-  width: 80%;
-  max-width: 320px;
-  border-radius: 12px;
-  padding: 24px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  animation: slideUp 0.3s ease-out;
-}
-
-.modalText {
-  font-family: 'Afacad', sans-serif;
-  font-size: 16px;
-  color: #333333;
-  margin-bottom: 24px;
-  line-height: 1.5;
-}
-
-.modalActions {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-}
-
-.btnCancel {
-  flex: 1;
-  padding: 10px 0;
-  border-radius: 8px;
-  border: 1px solid #CCCCCC;
-  background-color: #FFFFFF;
-  color: #555555;
-  font-family: 'Afacad', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.btnConfirm {
-  flex: 1;
-  padding: 10px 0;
-  border-radius: 8px;
-  border: none;
-  background-color: #F27830;
-  color: #FFFFFF;
-  font-family: 'Afacad', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-/* Animasi pop-up ringan */
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
